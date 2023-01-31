@@ -1,0 +1,41 @@
+#!/bin/bash
+declare -a commands_arr=()
+declare -a cmds_scripts_arr=()
+src="/usr/share/epic"
+
+commands_length=0
+
+main() {
+    counter=0
+    while IFS='=' read -r col1 col2
+    do
+        commands_arr[counter]=$col1
+        cmds_scripts_arr[counter]=$col2
+        counter=$((counter+1))
+    done < "$src"/commands
+    commands_length=$counter
+}
+
+main
+bool=false
+
+for (( i=0; i<$commands_length; i++ ))
+do
+    if [ ! -z "$1" ]
+    then
+        if [ $1 == ${commands_arr[$i]} ]
+        then
+            bool=true
+            # echo "Command: ${commands_arr[$i]}"
+            bash $src/scripts/${commands_arr[$i]}.sh $2 $3 $4 $5 $6 $7 $8 $9
+        fi
+    else
+        bool=true
+        bash $src/scripts/help.sh
+        break
+    fi
+done
+
+if !( $bool ) then
+    bash $src/scripts/help.sh
+fi

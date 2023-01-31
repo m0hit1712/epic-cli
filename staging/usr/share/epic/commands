@@ -1,0 +1,8 @@
+diff=diff.sh
+land=land.sh
+help=help.sh
+status=status.sh
+lint=lint.sh
+branch=branch.sh
+init=init.sh
+tree=tree.sh

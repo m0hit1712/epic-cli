@@ -1,0 +1,7 @@
+Section: cli
+Priority: optional
+Maintainer: Mohit Patidar 
+Package: epic
+Architecture: amd64
+Version: 1.0
+Description: This is a command line interface for fuse

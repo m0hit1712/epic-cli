@@ -1,0 +1,2 @@
+#!/bin/bash
+dpkg-deb --root-owner-group --build staging epic_`cat version`.deb

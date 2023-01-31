@@ -1,0 +1,10 @@
+#!/bin/bash
+sudo cp staging/usr/bin/epic /bin/epic
+sudo mkdir -p /usr/share/epic/scripts
+sudo mkdir -p /usr/share/epic/services
+sudo cp -r staging/usr/share/epic/scripts /usr/share/epic/
+sudo cp -r staging/usr/share/epic/services /usr/share/epic/
+sudo cp staging/usr/share/epic/commands /usr/share/epic/commands
+sudo cp staging/usr/share/epic/options /usr/share/epic/options
+echo "[+] Local dev install succeed..."
+echo -e "[+] replaced all the files in local bin and share\n"

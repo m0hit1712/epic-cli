@@ -1,0 +1,3 @@
+#!/bin/bash
+export PATH=$PATH:.
+echo "setup comepleted now you can run command fuse to use it"
