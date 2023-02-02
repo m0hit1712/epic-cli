@@ -3,12 +3,12 @@
 
 GIT_DIR=".git"
 if [ -d "$GIT_DIR" ]; then
-    DIR=".git/.fuse"
+    DIR=".git/.epic"
     if [ -d "$DIR" ]; then
-        echo "This is already a fuse repository"
+        echo "This is already a epic repository"
     else
         mkdir "$DIR"
-        echo "Initialized the fuse repository"
+        echo "Initialized the epic repository"
     fi
 else
     echo "This directory needs to be a git repository"
