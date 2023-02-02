@@ -21,17 +21,23 @@ bool=false
 
 for (( i=0; i<$commands_length; i++ ))
 do
-    if [ ! -z "$1" ]
-    then
-        if [ $1 == ${commands_arr[$i]} ]
-        then
+    if [ -d ".git/.epic" ] || [ "$1" = "init" ]; then
+        if [ ! -z "$1" ]; then
+            if [ $1 == ${commands_arr[$i]} ]
+            then
+                bool=true
+                # echo "Command: ${commands_arr[$i]}"
+                bash $src/scripts/${commands_arr[$i]}.sh $2 $3 $4 $5 $6 $7 $8 $9
+            fi
+        else
             bool=true
-            # echo "Command: ${commands_arr[$i]}"
-            bash $src/scripts/${commands_arr[$i]}.sh $2 $3 $4 $5 $6 $7 $8 $9
+            bash $src/scripts/help.sh
+            break
         fi
     else
+        echo -e "[-] This is not a epic repository..."
+        echo -e "[>] Run 'epic init' command to initialize\n"
         bool=true
-        bash $src/scripts/help.sh
         break
     fi
 done
